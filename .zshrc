@@ -8,9 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
 ZSH_THEME="bira"
-#ZSH_THEME="agnoster"
+#ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,39 +102,49 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-# synfong
+export JAVA_HOME=$(/usr/libexec/java_home -V 21.0.2)
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$PATH:/Applications/MAMP/Library/bin
+export PATH=/Applications/MAMP/Library/bin/mysql80/bin:$PATH
+
+alias php83="/usr/local/opt/php@8.3/bin/php"
+
+# synfony
 
 alias ss="symfony serve --port=8001"
 alias sc="symfony console"
 alias scm="synfony console make"
-alias scmm="symfony console make migration"
-alias scdmm="symfony console doctrine migrations:migrate"
+alias scmm="symfony console make:migration"
+alias scdmm="symfony console doctrine:migrations:migrate"
 
 
 # git
-alias gaa="git add ." 
-alias gsw="git switch" 
-alias gc="git commit -m" 
-alias gpl="git pull origin" 
-alias gph="git push origin" 
-alias gst="git status" 
-alias gn="git merge" 
-alias gsth="git stash" 
-alias gsthap="git stash apply" 
+alias gaa="git add ."
+alias gsw="git switch"
+alias gc="git commit -m"
+alias gpl="git pull origin"
+alias gph="git push origin"
+alias gst="git status"
+alias gm="git merge"
+alias gsth="git stash"
+alias gsthap="git stash apply"
 alias gb="git branch"
-alias gcl="git clone "
-
-#laravel
-alias pa="php artisan"
-alias panc="php artisan make:controller" 
-alias pas="php artisan serve --port-8000" 
-alias pan="php artisan make-migration" 
-alias pan="php artisan migrate" 
-alias panzb="php artisan askesrollback" 
-alias pants="php artisan make-rollback --step"
+alias gcl="git clone"
+alias gca="git commit --amend"
 
 #systeme
-alias cl="clear "
-alias sxs="sudo ./xampp start"
+alias cl="clear"
 alias c="cd"
 alias su="sudo"
+
+#docker
+
+alias dk="docker"
+alias dkpsa="docker ps -a"
+alias dkr="docker run"
+alias dki="docker images"
+alias dkrm="docker rm"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
